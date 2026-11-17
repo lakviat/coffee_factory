@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+    <defs><path id="seal-top" d="M 17,62 A 43,43 0 0 1 103,62"/><path id="seal-bottom" d="M 13,62 A 47,47 0 0 0 107,62"/></defs>
+    <circle cx="60" cy="60" r="57" fill="none" stroke="#f4edda" stroke-width="2.1"/>
+    <circle cx="60" cy="60" r="35" stroke="#f4edda" stroke-width="1.5"/>
+    <g fill="#f4edda" font-family="Arial, sans-serif" font-weight="700" font-size="13.5" letter-spacing="2.1"><text><textPath href="#seal-top" startOffset="50%" text-anchor="middle">COFFEE</textPath></text><text><textPath href="#seal-bottom" startOffset="50%" text-anchor="middle">FACTORY</textPath></text></g>
+    <g stroke="#f4edda" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M42 59 Q60 65 78 59 L74 73 Q60 87 46 73 Z"/><path d="M78 60 C92 54 89 72 77 72"/><path d="M45 81 H78"/><path d="M52 53 C44 48 70 49 62 43 C53 37 70 37 67 31"/></g>
+    <g fill="#f4edda" transform="rotate(-28 20 64)"><ellipse cx="20" cy="64" rx="3.1" ry="5.3"/><path d="M20 59 Q17 64 20 69" stroke="#252620" stroke-width=".7"/></g>
+    <g fill="#f4edda" transform="rotate(28 100 64)"><ellipse cx="100" cy="64" rx="3.1" ry="5.3"/><path d="M100 59 Q97 64 100 69" stroke="#252620" stroke-width=".7"/></g></svg>

@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+.preview/
+generated_images/
+*.heic
+*.jpeg
+assets/images/*.png
