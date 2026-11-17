@@ -72,6 +72,28 @@ document.querySelector('#dialog-visit').addEventListener('click', () => dialog.c
 dialog.addEventListener('click', event => { if (event.target !== dialog) return; const box = dialog.getBoundingClientRect(); if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close(); });
 dialog.addEventListener('close', () => { document.body.classList.remove('modal-open'); if (dialogOpener && document.activeElement === document.body) dialogOpener.focus(); });
 
+const mapDialog = document.querySelector('.map-dialog');
+let mapOpener;
+document.querySelectorAll('[data-map-chooser]').forEach(link => link.addEventListener('click', event => {
+  // The address links still open Google Maps when native dialogs are unavailable.
+  if (!mapDialog || typeof mapDialog.showModal !== 'function') return;
+  event.preventDefault();
+  mapOpener = link;
+  mapDialog.showModal();
+  document.body.classList.add('modal-open');
+}));
+mapDialog.querySelector('.map-close').addEventListener('click', () => mapDialog.close());
+mapDialog.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mapDialog.close()));
+mapDialog.addEventListener('click', event => {
+  if (event.target !== mapDialog) return;
+  const box = mapDialog.getBoundingClientRect();
+  if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) mapDialog.close();
+});
+mapDialog.addEventListener('close', () => {
+  document.body.classList.remove('modal-open');
+  if (mapOpener) mapOpener.focus();
+});
+
 const toast = document.querySelector('.toast');
 let toastTimeout;
 document.querySelectorAll('[data-coming-soon]').forEach(button => button.addEventListener('click', () => {

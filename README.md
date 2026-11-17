@@ -27,10 +27,14 @@ The site will be at **https://lakviat.github.io/coffee_factory/** after GitHub f
 - Responsive desktop and mobile layout, mobile navigation, keyboard focus styles, native accessible product dialogs, and a skip link.
 - Animated photographic hero, subtle section reveals, a scrolling brand ribbon, a pause control, and automatic reduced-motion support.
 - Crema, Classico, and Intenso capsule details taken from the supplied package photos, and filters for capsules, coffee bags, or all formats.
+- All five capsule and bag formats are visible by default; the existing bag illustrations remain unchanged pending approval of any new black-bag artwork.
 - Small and large bag concept previews. Product names for the bags are working names, not a confirmed product catalog.
 - A café section with the supplied street address and an address-search link. This does not imply an existing Google business listing.
 - Instagram, Facebook, LinkedIn, and online store placeholders that explain their coming-soon status when selected.
 - A matching delivery section linking to Uber Eats, DoorDash, and Grubhub, reached through the header and mobile navigation. Links currently open the official platform homepages in new tabs; the page clearly states that Coffee Factory listings are coming soon.
+- A matching online marketplace section linking to Amazon and Etsy homepages until the actual stores are ready. No eBay links are included.
+- A separate wholesale and bulk-orders section with planned formats and a coming-soon status; no pricing, minimum quantities, or active order collection is implied.
+- Clickable café addresses and neighborhood badge that open a compact Google Maps / Apple Maps chooser. Address links fall back to Google Maps without JavaScript; no embedded map is added.
 - Search and social metadata and a scalable favicon.
 
 ## Brand direction and references
@@ -63,3 +67,5 @@ Confirm the final logo, street address and entrance, opening status, hours, caf�
 Ordering and social integrations are future work. There is no checkout, payment processing, mailing-list collection, or backend in this design phase. Product data lives in `script.js`; text and sections live in `index.html`; visual tokens are at the top of `styles.css`.
 
 When delivery listings are ready, replace the three `href` values in `#delivery .delivery-platform` in `index.html` with the exact Coffee Factory storefront URLs. Update the link text, status, and explanatory note to reflect actual availability. No JavaScript or API integration is needed for these outbound ordering links.
+
+For Amazon and Etsy, update the two `href` values in `#marketplaces .marketplace-platform` and the section's status when the stores are available. Add approved wholesale contact and ordering details to `#wholesale` when ready. Map destinations live in the `.map-dialog`; every address trigger keeps a direct Google Maps fallback.
