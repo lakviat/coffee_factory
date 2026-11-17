@@ -30,6 +30,7 @@ The site will be at **https://lakviat.github.io/coffee_factory/** after GitHub f
 - Small and large bag concept previews. Product names for the bags are working names, not a confirmed product catalog.
 - A café section with the supplied street address and an address-search link. This does not imply an existing Google business listing.
 - Instagram, Facebook, LinkedIn, and online store placeholders that explain their coming-soon status when selected.
+- A matching delivery section linking to Uber Eats, DoorDash, and Grubhub, reached through the header and mobile navigation. Links currently open the official platform homepages in new tabs; the page clearly states that Coffee Factory listings are coming soon.
 - Search and social metadata and a scalable favicon.
 
 ## Brand direction and references
@@ -60,3 +61,5 @@ The design and copy are original; no competitor branding or photographs have bee
 Confirm the final logo, street address and entrance, opening status, hours, café menu, contact details, final product list, prices, package sizes, and social URLs. The current page deliberately announces no opening date, hours, prices, reviews, sourcing claims, or unconfirmed certifications.
 
 Ordering and social integrations are future work. There is no checkout, payment processing, mailing-list collection, or backend in this design phase. Product data lives in `script.js`; text and sections live in `index.html`; visual tokens are at the top of `styles.css`.
+
+When delivery listings are ready, replace the three `href` values in `#delivery .delivery-platform` in `index.html` with the exact Coffee Factory storefront URLs. Update the link text, status, and explanatory note to reflect actual availability. No JavaScript or API integration is needed for these outbound ordering links.

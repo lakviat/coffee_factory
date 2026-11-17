@@ -18,3 +18,19 @@
 /* Inline vectors keep decorative icons independent of platform emoji fonts. */
 .icon{display:inline-block;width:1em;height:1em;flex:none;vertical-align:-.125em;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .little-star>.icon,.story-star>.icon,.marquee-track b>.icon{display:block}
+
+.delivery{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;background:var(--cream)}
+.delivery-copy h2{margin-top:27px}
+.delivery-copy>p{max-width:335px;margin-top:24px;font-size:13px;line-height:1.9;color:var(--muted)}
+.delivery-platforms{padding-left:30px}
+.delivery-status{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:8px;font-weight:500;letter-spacing:1.1px;line-height:1.6;color:var(--muted)}
+.delivery-links{border-top:1px solid var(--line)}
+.delivery-platform{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:85px;padding:18px 0;border-bottom:1px solid var(--line);transition:color .2s}
+.delivery-name{font-family:var(--display);font-size:35px;font-weight:600;letter-spacing:-.3px;line-height:1.2}
+.delivery-action{display:inline-flex;align-items:center;gap:22px;white-space:nowrap;font-size:10px}
+.delivery-action>.icon{font-size:21px;transition:transform .2s}
+.delivery-platform:hover{color:var(--copper)}
+.delivery-platform:hover .icon{transform:translate(2px,-2px)}
+.delivery-note{max-width:410px;margin-top:19px;font-size:10px;line-height:1.8;color:var(--muted)}
+@media(max-width:1100px){.delivery{gap:40px}.delivery-platforms{padding-left:0}}
+@media(max-width:760px){.delivery{grid-template-columns:1fr;gap:32px}.delivery-copy h2{font-size:61px;margin-top:24px}.delivery-copy>p{max-width:390px;margin-top:21px;font-size:12px}.delivery-status{font-size:8px;margin-bottom:17px;letter-spacing:.8px}.delivery-platform{min-height:76px;padding:17px 0}.delivery-name{font-size:32px}.delivery-action{font-size:10px;gap:17px}.delivery-action>.icon{font-size:20px}.delivery-note{font-size:10px;margin-top:17px}}
