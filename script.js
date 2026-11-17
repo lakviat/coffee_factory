@@ -60,7 +60,7 @@ document.querySelectorAll('[data-product]').forEach(button => button.addEventLis
   document.querySelector('#dialog-flavors').textContent = product.flavors;
   document.querySelector('#dialog-description').textContent = product.description;
   const image = document.querySelector('#dialog-image');
-  image.src = './assets/images/' + product.image;
+  image.src = './assets/images/' + product.image + '?v=3';
   image.alt = 'Coffee Factory ' + product.name.toLowerCase() + ' packaging preview';
   const facts = document.querySelector('#dialog-facts');
   facts.replaceChildren(...product.facts.map(([label, value]) => { const item = document.createElement('div'); const title = document.createElement('span'); title.textContent = label; item.append(title, document.createTextNode(value)); return item; }));

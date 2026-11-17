@@ -34,7 +34,7 @@ The site will be at **https://lakviat.github.io/coffee_factory/** after GitHub f
 
 ## Brand direction and references
 
-The supplied packaging is the source of truth: charcoal, ivory, copper, and burgundy; a circular cup-and-steam seal; and straightforward sans-serif package typography. `assets/brand/` contains editable vector reconstructions of the seal, plus a small bean motif. `scripts/prepare_vectors.py` recreates the packaging illustrations and logos.
+The supplied packaging is the source of truth: charcoal, ivory, copper, and burgundy; a circular cup-and-steam seal; and straightforward sans-serif package typography. `assets/brand/logo-source.webp` contains a transparent, photo-based reconstruction of the supplied seal, with its solid cup, broad steam, bold ring lettering and four beans. It is a close reconstruction, not the original production artwork. The SVG wrappers apply consistent ink colors and embed this source so they work on standalone packaging previews as well. `scripts/prepare_vectors.py` recreates those wrappers and packaging illustrations. Replace the source with approved production artwork when available.
 
 Barlow Condensed supplies the bold editorial headings, while DM Sans keeps supporting information readable. Both fonts are self-hosted with their licenses in `assets/fonts/`.
 

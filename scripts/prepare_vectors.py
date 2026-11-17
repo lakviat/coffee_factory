@@ -1,6 +1,7 @@
 """Reconstruct scalable packaging illustrations from the supplied brand photos."""
 from pathlib import Path
 from math import sin, cos, radians
+from base64 import b64encode
 
 ROOT = Path(__file__).resolve().parent.parent
 BRAND = ROOT / 'assets/brand'
@@ -9,14 +10,17 @@ BRAND.mkdir(parents=True, exist_ok=True)
 IMAGES.mkdir(parents=True, exist_ok=True)
 
 def seal(color='#f4edda', background='none', prefix='seal'):
+    # Embed the photo-based reconstruction so SVGs also work as standalone img
+    # sources, where browsers do not load external nested image resources.
+    source = b64encode((BRAND / 'logo-source.webp').read_bytes()).decode('ascii')
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
-    <defs><path id="{prefix}-top" d="M 17,62 A 43,43 0 0 1 103,62"/><path id="{prefix}-bottom" d="M 13,62 A 47,47 0 0 0 107,62"/></defs>
-    <circle cx="60" cy="60" r="57" fill="{background}" stroke="{color}" stroke-width="2.1"/>
-    <circle cx="60" cy="60" r="35" stroke="{color}" stroke-width="1.5"/>
-    <g fill="{color}" font-family="Arial, sans-serif" font-weight="700" font-size="13.5" letter-spacing="2.1"><text><textPath href="#{prefix}-top" startOffset="50%" text-anchor="middle">COFFEE</textPath></text><text><textPath href="#{prefix}-bottom" startOffset="50%" text-anchor="middle">FACTORY</textPath></text></g>
-    <g stroke="{color}" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M42 59 Q60 65 78 59 L74 73 Q60 87 46 73 Z"/><path d="M78 60 C92 54 89 72 77 72"/><path d="M45 81 H78"/><path d="M52 53 C44 48 70 49 62 43 C53 37 70 37 67 31"/></g>
-    <g fill="{color}" transform="rotate(-28 20 64)"><ellipse cx="20" cy="64" rx="3.1" ry="5.3"/><path d="M20 59 Q17 64 20 69" stroke="{background if background != 'none' else '#252620'}" stroke-width=".7"/></g>
-    <g fill="{color}" transform="rotate(28 100 64)"><ellipse cx="100" cy="64" rx="3.1" ry="5.3"/><path d="M100 59 Q97 64 100 69" stroke="{background if background != 'none' else '#252620'}" stroke-width=".7"/></g></svg>'''
+    <defs><filter id="{prefix}-ink" color-interpolation-filters="sRGB">
+    <feComponentTransfer in="SourceAlpha" result="clean-alpha"><feFuncA type="linear" slope="1.04" intercept="-0.02"/></feComponentTransfer>
+    <feFlood flood-color="{color}"/><feComposite in2="clean-alpha" operator="in"/>
+    </filter></defs>
+    <circle cx="60" cy="60" r="59" fill="{background}"/>
+    <image width="120" height="120" href="data:image/webp;base64,{source}" filter="url(#{prefix}-ink)"/>
+    </svg>'''
 
 (BRAND / 'seal.svg').write_text(seal(), encoding='utf-8')
 (BRAND / 'seal-dark.svg').write_text(seal('#252620', '#f4f0e7'), encoding='utf-8')
