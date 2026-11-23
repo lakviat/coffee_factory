@@ -30,7 +30,7 @@ The site will be at **https://lakviat.github.io/coffee_factory/** after GitHub f
 - All five capsule and bag formats are visible by default; the existing bag illustrations remain unchanged pending approval of any new black-bag artwork.
 - Small and large bag concept previews. Product names for the bags are working names, not a confirmed product catalog.
 - A café section with the supplied street address and an address-search link. This does not imply an existing Google business listing.
-- Instagram, Facebook, LinkedIn, and online store placeholders that explain their coming-soon status when selected.
+- Instagram and Facebook links supplied by the owner, plus a TikTok coming-soon placeholder. Instagram currently opens the supplied homepage URL until the brand profile URL is available.
 - A matching delivery section linking to Uber Eats, DoorDash, and Grubhub, reached through the header and mobile navigation. Links currently open the official platform homepages in new tabs; the page clearly states that Coffee Factory listings are coming soon.
 - A matching online marketplace section linking to Amazon and Etsy homepages until the actual stores are ready. No eBay links are included.
 - A separate wholesale and bulk-orders section with planned formats and a coming-soon status; no pricing, minimum quantities, or active order collection is implied.
@@ -38,6 +38,8 @@ The site will be at **https://lakviat.github.io/coffee_factory/** after GitHub f
 - Search and social metadata and a scalable favicon.
 
 ## Brand direction and references
+
+`assets/brand/owner-logo.webp` is a pixel-identical, lossless web export of the higher-resolution logo supplied by the owner. The header, footer, hero badge, and favicon use this artwork. Existing packaging concepts retain their original illustrations.
 
 The supplied packaging is the source of truth: charcoal, ivory, copper, and burgundy; a circular cup-and-steam seal; and straightforward sans-serif package typography. `assets/brand/logo-source.webp` contains a transparent, photo-based reconstruction of the supplied seal, with its solid cup, broad steam, bold ring lettering and four beans. It is a close reconstruction, not the original production artwork. The SVG wrappers apply consistent ink colors and embed this source so they work on standalone packaging previews as well. `scripts/prepare_vectors.py` recreates those wrappers and packaging illustrations. Replace the source with approved production artwork when available.
 
@@ -69,3 +71,5 @@ Ordering and social integrations are future work. There is no checkout, payment 
 When delivery listings are ready, replace the three `href` values in `#delivery .delivery-platform` in `index.html` with the exact Coffee Factory storefront URLs. Update the link text, status, and explanatory note to reflect actual availability. No JavaScript or API integration is needed for these outbound ordering links.
 
 For Amazon and Etsy, update the two `href` values in `#marketplaces .marketplace-platform` and the section's status when the stores are available. Add approved wholesale contact and ordering details to `#wholesale` when ready. Map destinations live in the `.map-dialog`; every address trigger keeps a direct Google Maps fallback.
+
+Update the Instagram and Facebook URLs in `#connect .social-links` when their final Coffee Factory profiles are ready. Replace the TikTok placeholder button with a matching link once its profile URL is supplied.
