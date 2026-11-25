@@ -1,0 +1,6 @@
+# Crawlers read this file only at the host root (/robots.txt).
+# On GitHub project Pages, submit sitemap.xml directly in webmaster tools.
+User-agent: *
+Allow: /
+
+Sitemap: https://lakviat.github.io/coffee_factory/sitemap.xml

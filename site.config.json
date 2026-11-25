@@ -1,0 +1,25 @@
+{
+  "site_url": "https://lakviat.github.io/coffee_factory/",
+  "name": "Coffee Factory",
+  "title": "Coffee Factory | Hallandale Beach Coffee Shop, South Florida",
+  "description": "Coffee Factory is coming to Hallandale Beach in the Miami area. Explore coffee capsules, small and large bags, with delivery and wholesale plans for South Florida.",
+  "language": "en-US",
+  "locale": "en_US",
+  "logo": "assets/brand/owner-logo.webp",
+  "image": {
+    "path": "assets/images/coffee-still-life.webp",
+    "width": 1672,
+    "height": 941,
+    "type": "image/webp",
+    "alt": "Coffee Factory capsule boxes and an espresso — concept photography"
+  },
+  "business": {
+    "description": "Coffee Factory is a coffee brand and a planned neighborhood café at Imperial Towers in Hallandale Beach, in the Miami area of South Florida. Explore coffee capsule boxes, small and large coffee bags, and plans for coffee delivery and wholesale orders. Opening details are coming soon.",
+    "address": {
+      "streetAddress": "1801 South Ocean Drive",
+      "addressLocality": "Hallandale Beach",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    }
+  }
+}

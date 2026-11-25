@@ -5,6 +5,7 @@
   "description": "Coffee Factory café and coffee collection — GitHub Pages website",
   "scripts": {
     "dev": "python3 -m http.server 4173 --bind 127.0.0.1",
-    "check": "node --check script.js && python3 scripts/check_site.py"
+    "seo": "python3 scripts/prepare_seo.py",
+    "check": "node --check script.js && python3 scripts/prepare_seo.py --check && python3 scripts/check_site.py"
   }
 }

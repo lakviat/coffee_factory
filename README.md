@@ -14,7 +14,7 @@ Open `http://127.0.0.1:4173`. No installation or build step is needed; the devel
 npm run check
 ```
 
-Checks JavaScript syntax, local file references, anchor targets, SVG validity, image descriptions, and essential metadata.
+Checks JavaScript syntax, local file references, anchor targets, SVG validity, image descriptions, generated SEO consistency, canonical/social metadata, JSON-LD, sitemap XML, and crawler rules.
 
 ## GitHub Pages
 
@@ -36,6 +36,7 @@ The site will be at **https://lakviat.github.io/coffee_factory/** after GitHub f
 - A separate wholesale and bulk-orders section with planned formats and a coming-soon status; no pricing, minimum quantities, or active order collection is implied.
 - Clickable café addresses and neighborhood badge that open a compact Google Maps / Apple Maps chooser. Address links fall back to Google Maps without JavaScript; no embedded map is added.
 - Search and social metadata and a scalable favicon.
+- Static search metadata, a one-page XML sitemap, crawler rules, and connected WebSite, WebPage, and CafeOrCoffeeShop structured data. Miami-area and South Florida copy accurately places the planned café in Hallandale Beach and describes delivery and online shopping as coming soon.
 
 ## Brand direction and references
 
@@ -73,3 +74,37 @@ When delivery listings are ready, replace the three `href` values in `#delivery 
 For Amazon and Etsy, update the two `href` values in `#marketplaces .marketplace-platform` and the section's status when the stores are available. Add approved wholesale contact and ordering details to `#wholesale` when ready. Map destinations live in the `.map-dialog`; every address trigger keeps a direct Google Maps fallback.
 
 Update the Instagram and Facebook URLs in `#connect .social-links` when their final Coffee Factory profiles are ready. Replace the TikTok placeholder button with a matching link once its profile URL is supplied.
+
+## Search setup and the future domain
+
+`site.config.json` is the source for the public site URL, title, description, social preview, and business identity. Run `npm run seo` after changing it, then `npm run check`. Generated metadata is included in the served HTML; crawlers do not need JavaScript. GitHub Pages needs no build step.
+
+- The current canonical is `https://lakviat.github.io/coffee_factory/`. `sitemap.xml` lists this one page; section fragments and product dialogs are not separate pages. There is no invented modification date or ranking priority.
+- `robots.txt` allows crawling and advertises the absolute sitemap URL. **On the current project URL, `/coffee_factory/robots.txt` is not the host-root robots file and does not control crawlers.** Google reads `https://lakviat.github.io/robots.txt`; it returned 404 during this setup, so no host-root restriction was present. This repository does not modify that separate host-root site. Recheck it if another project adds rules. The prepared file will apply when the custom domain serves this repository at `/`.
+- Titles, descriptions, readable copy, and business data cover Hallandale Beach, the Miami area, South Florida, coffee capsules/boxes, small and large bags, planned coffee delivery, and wholesale. No hidden keyword lists or meta-keyword tag are used; Google ignores meta keywords.
+- Business markup uses the supplied name and actual planned address. Opening hours, launch dates, phone, coordinates, pricing, ratings, order actions, and active delivery coverage are omitted until confirmed. Generic platform URLs and the Facebook page still using another identity are not asserted as official `sameAs` identities. Product/merchant rich-result markup waits for confirmed sale details.
+- The page is indexable over HTTPS. Publishing these files does **not** verify ownership, submit a sitemap, create a Maps listing, guarantee indexing/rankings, or certify compliance with every platform policy.
+
+### Search engine account steps
+
+These require the owner's account and a real verification token; none is fabricated or committed:
+
+1. In [Google Search Console](https://search.google.com/search-console/), add the URL-prefix property `https://lakviat.github.io/coffee_factory/`. Use the provided HTML verification file in the repository root, or place the exact verification meta tag outside the generated SEO block. Verify ownership, submit `https://lakviat.github.io/coffee_factory/sitemap.xml`, then inspect the homepage and request indexing.
+2. In [Bing Webmaster Tools](https://www.bing.com/webmasters/), verify/import the same site and submit the sitemap. Track processing and crawl/indexing errors in both tools.
+3. For Google Maps and Apple Maps, claim and verify separate business listings using confirmed opening and business details. Website structured data is not a substitute for those listings.
+
+### When the domain is purchased
+
+1. Configure the custom domain in GitHub Pages, its DNS records, domain ownership verification, and HTTPS. Add the actual `CNAME` only then; no unpurchased domain is claimed now.
+2. Generate all domain-dependent SEO from one command (replace this example):
+
+   ```sh
+   npm run seo -- --site-url https://your-domain.example/
+   npm run check
+   ```
+
+   This updates `site.config.json`, canonical/Open Graph URLs, structured-data IDs and asset URLs, `sitemap.xml`, and the sitemap directive in `robots.txt`. Commit and deploy them together. Existing relative image, font, stylesheet, and navigation paths also work at the domain root.
+3. Check that the old GitHub Pages URL redirects to the custom domain, and the new homepage, `/robots.txt`, `/sitemap.xml`, images, and styles return successfully over HTTPS. Use one preferred hostname and ensure other variants redirect there.
+4. Verify the new domain property in Search Console and Bing; submit its sitemap, inspect the page, and monitor the move. Update social profiles and any external links to the final URL.
+
+References: [Google sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap), [host-root robots rules](https://developers.google.com/crawling/docs/robots-txt/create-robots-txt), [supported meta tags](https://developers.google.com/search/docs/crawling-indexing/special-tags), and [local business structured data](https://developers.google.com/search/docs/appearance/structured-data/local-business).
